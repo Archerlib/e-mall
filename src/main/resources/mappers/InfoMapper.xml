@@ -23,7 +23,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, content, type, pic, url
+    id, title, content, type, pic, url,html
   </sql>
   <sql id="Blob_Column_List" >
     html
@@ -140,9 +140,9 @@
       url = #{url,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectAll" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectAll" resultMap="ResultMapWithBLOBs">
     select
-    <include refid="Blob_Column_List" />
+    <include refid="Base_Column_List" />
     from mmall_info
   </select>
 </mapper>

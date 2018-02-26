@@ -24,7 +24,7 @@ public class InfoController {
 
         ServerResponse<Info> response = iInfoService.getListInfo();
 
-        Info listData = response.getData();
+        //Info listData = response.getData();
 
         return response;
     }
