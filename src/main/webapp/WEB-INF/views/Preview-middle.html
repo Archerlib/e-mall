@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://m.imooc.com/course/list?c=fe -->
+<html lang="en" data-dpr="1" style="font-size: 54px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>营销宝_预览_middle</title>
+    <style type="text/css">
+        /*设置IE滤镜，这里的id=imghead要与下方利用Javascript生成div的id相呼应。*/
+        #imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+    </style>
+    <script type="text/javascript">
+        //图片上传预览，非IE则用了HTML5的代码，IE是用了滤镜
+        function previewImage(file, MAXWIDTH, MAXHEIGHT){//MAXWIDTH、MAXHEIGHT与放预览图片的DIV——preview的大小相呼应
+            var div = document.getElementById('preview');
+            if (file.files && file.files[0]) {//HTML5部分
+                div.innerHTML = "<img id='imghead'></img>";
+                var img = document.getElementById('imghead');
+                img.onload = function(){
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    img.width = rect.width;
+                    img.height = rect.height;
+                    img.style.marginTop = rect.top + 'px';
+                }
+                var reader = new FileReader();
+                reader.onload = function(evt){
+                    img.src = evt.target.result;
+                }
+                reader.readAsDataURL(file.files[0]);
+            }
+            else //兼容IE
+            {
+                var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                file.select();
+                var src = document.selection.createRange().text;
+                div.innerHTML = "<img id='imghead'></img>";
+                var img = document.getElementById('imghead');
+                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                div.innerHTML = "<div style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+            }
+        }
+        //用于计算预览图片的大小
+        function clacImgZoomParam(maxWidth, maxHeight, width, height){
+            var param = {
+                top: 0,
+                left: 0,
+                width: width,
+                height: height
+            };
+            if (width > maxWidth || height > maxHeight) {
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+                if (rateWidth > rateHeight) {
+                    param.width = maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }
+                else {
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="营销宝——微商拓客利器">
+    <meta name="keywords" content="营销宝">
+    <meta name="author" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-transform ">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<header>
+    <div class="header clearfix">
+
+        <a href="#" class="logo l">
+            <span class="glyphicon glyphicon-chevron-left " style="font-size:20px;color:black; " >
+            </span>
+        </a>
+
+        <span class="js-header-name header-name l"   style="font-size:20px" >
+					预览
+				</span>
+        <form   class="search-box r clearfix js-search-box  " action="save.php"
+                style=" width:200px;"
+        >
+            <div class="l search-input hasnameinput-1" style="width:195px;">
+                <input type="text" class="search js-search" name="words" value="" placeholder="请输入搜索关键词">
+                <div class="search-action l">
+                    <a href="javascript:void(0);" class="imwap-close js-clear" style="display: none;"></a>
+                    <button class="imwap-search"></button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="r cancel js-cancel">取消</a>
+        </form>
+    </div>
+</header>
+
+<body style="font-size: 12px;">
+
+
+<div class="Summary"   align="center"  style="margin-top: 20px; font-size: 25px;">
+    <p style="padding-top: 15px">这是一个摘要</p>
+    <p style="padding-top: 15px">这是一个摘要</p>
+    <p style="padding-top: 15px">这是一个摘要</p>
+    <p style="padding-top: 15px">这是一个摘要</p>
+    <p style="padding-top: 15px">这是一个摘要</p>
+    <p style="padding-top: 15px">这是一个摘要</p>
+</div>
+
+<div class="Summary"   align="center"  style="margin-top: 20px;font-size: 25px; border-top:1px solid #ddd">
+    <p style="padding-top: 15px">适应人群：</p>
+
+    <p  style="padding-top: 15px">某人某人</p>
+</div>
+<div class="text" align="center" style=" border-top:1px solid #ddd">
+    <p style="padding-top: 15px">这是正文</p>
+    <p >这是正文</p>
+    <p >这是正文</p>
+    <p >这是正文</p>
+    <p >这是正文</p>
+</div>
+<div id="preview" style="width:250px;height:250px;margin-left:25% ;margin-top:15%">
+
+
+</div><!--用来放预览图片的DIV-->
+<div class="top-picture-file"  align="center">
+    <input type="file" onchange="previewImage(this,250,250)" accept="image/*" style="margin-left:40%"/>
+    <!--一旦用户选择了图片文件，则触发上方的previewImage函数-->
+</div>
+<div class="txt"  align="center"  style="margin-top: 25px;">
+    <button class="btn btn-default"  onclick="demo()">输入广告词</button>
+    <p id="shuru"></p>
+</div>
+
+<div class="text" align="center" >
+    <p style="padding-top: 15px">这是正文</p>
+    <p >这是正文</p>
+    <p >这是正文</p>
+    <p >这是正文</p>
+    <p >这是正文</p>
+</div>
+
+
+</body>
+<script>
+    function demo(){
+        var x;
+        var user=prompt("请输入你想输入的广告词")
+        if(user!=null&&user!=""){
+            x="这是您刚刚输入的："+user;
+            document.getElementById("shuru").innerHTML = x;
+        }
+    }
+</script>
+</html>

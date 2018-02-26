@@ -1,0 +1,55 @@
+@charset "utf-8";
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #EEEEEE;
+    font-family: 微软雅黑;
+}
+ul{
+    list-style: none;
+    margin: 0 0 0 7.5em;
+    padding: 0;
+}
+
+.content{
+    width: 100%;
+    background-color: #EEEEEE;
+}
+.detail{
+    background-color: #FFFFFF;
+    height: auto;
+    margin-top:1em;
+    padding: 10px;
+    position: relative;
+}
+.edit{
+    background-color: #FFFFFF;
+    height: 2em;
+    width: 100%;
+    margin-top:1em;
+    clear: both;
+}
+.login-out{
+    background-color: #FFFFFF;
+    height: 2em;
+    width: 100%;
+    margin-top:0.1em;
+    margin-bottom: 0.5em;
+}
+
+
+a{
+    text-decoration: none;
+    display: inline-block;
+    height: 2em;
+    text-align: center;
+    width: 100%;
+    line-height: 2em;
+    color: black;
+}
+.block{
+    display: inline-block;
+    height: auto;
+    word-wrap:break-word;
+    width: 50%;
+}

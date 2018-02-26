@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmall.dao.UserAdvMapper" >
+  <resultMap id="BaseResultMap" type="com.mmall.pojo.UserAdv" >
+    <constructor >
+      <arg column="appid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="adv_words" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mmall.pojo.UserAdv" >
+    <constructor >
+      <arg column="appid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="adv_words" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="adv_pic" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    adv_pic
+  </sql>
+  <insert id="insert" parameterType="com.mmall.pojo.UserAdv" >
+    insert into mmall_user_adv (appid, adv_words, adv_pic
+      )
+    values (#{appid,jdbcType=VARCHAR}, #{advWords,jdbcType=VARCHAR}, #{advPic,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.pojo.UserAdv" >
+    insert into mmall_user_adv
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        appid,
+      </if>
+      <if test="advWords != null" >
+        adv_words,
+      </if>
+      <if test="advPic != null" >
+        adv_pic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="advWords != null" >
+        #{advWords,jdbcType=VARCHAR},
+      </if>
+      <if test="advPic != null" >
+        #{advPic,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
